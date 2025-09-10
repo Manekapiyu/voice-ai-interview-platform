@@ -13,10 +13,10 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import FormField from "@/components/FormField";
 
-// 🔹 Define the form type
+//Define the form type
 type FormType = "sign-in" | "sign-up";
 
-// 🔹 Schema factory
+//Schema factory
 const authFormSchema = (type: FormType) =>
   z.object({
     name:
@@ -71,7 +71,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
           return;
         }
 
-        toast.success("Signed in successfully.");
+        toast.success(" Signed in successfully.");
         router.push("/");
       }
     } catch (error: any) {
@@ -83,61 +83,80 @@ const AuthForm = ({ type }: { type: FormType }) => {
   const isSignIn = type === "sign-in";
 
   return (
-    <div className="card-border lg:min-w-[566px]">
-      <div className="flex flex-col gap-6 card py-14 px-10">
-        <div className="flex flex-row gap-2 justify-center">
-          <Image src="/logo.svg" alt="logo" height={32} width={38} />
-          <h2 className="text-primary-100">PrepWise</h2>
-        </div>
+    <div className="lg:min-w-[566px]">
+      {/* Gradient Border Wrapper */}
+      <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-[2px] rounded-2xl shadow-xl">
+        {/* Inner Card */}
+        <div className="flex flex-col gap-6 bg-white dark:bg-gray-900 rounded-2xl py-14 px-10">
+          {/* Logo + Title */}
+          <div className="flex flex-row gap-2 justify-center items-center">
+            <Image src="/logo.svg" alt="logo" height={32} width={38} />
+            <h2 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+              PrepWise
+            </h2>
+          </div>
 
-        <h3>Practice job interviews with AI</h3>
+          <h3 className="text-center text-gray-600 dark:text-gray-300">
+            Practice job interviews with{" "}
+            <span className="text-purple-600 dark:text-purple-400 font-semibold">
+              AI
+            </span>
+          </h3>
 
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="w-full space-y-6 mt-4 form"
-          >
-            {!isSignIn && (
+          {/* Form */}
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="w-full space-y-6 mt-4"
+            >
+              {!isSignIn && (
+                <FormField
+                  control={form.control}
+                  name="name"
+                  label="Name"
+                  placeholder="Your Name"
+                  type="text"
+                />
+              )}
+
               <FormField
                 control={form.control}
-                name="name"
-                label="Name"
-                placeholder="Your Name"
-                type="text"
+                name="email"
+                label="Email"
+                placeholder="Your email address"
+                type="email"
               />
-            )}
 
-            <FormField
-              control={form.control}
-              name="email"
-              label="Email"
-              placeholder="Your email address"
-              type="email"
-            />
+              <FormField
+                control={form.control}
+                name="password"
+                label="Password"
+                placeholder="Enter your password"
+                type="password"
+              />
 
-            <FormField
-              control={form.control}
-              name="password"
-              label="Password"
-              placeholder="Enter your password"
-              type="password"
-            />
+              <Button
+                className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 
+                hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 
+                text-white font-semibold py-2 rounded-xl shadow-md transition-all"
+                type="submit"
+              >
+                {isSignIn ? "Sign In" : "Create an Account"}
+              </Button>
+            </form>
+          </Form>
 
-            <Button className="btn" type="submit">
-              {isSignIn ? "Sign In" : "Create an Account"}
-            </Button>
-          </form>
-        </Form>
-
-        <p className="text-center">
-          {isSignIn ? "No account yet?" : "Have an account already?"}
-          <Link
-            href={!isSignIn ? "/sign-in" : "/sign-up"}
-            className="font-bold text-user-primary ml-1"
-          >
-            {!isSignIn ? "Sign In" : "Sign Up"}
-          </Link>
-        </p>
+          {/* Switch Link */}
+          <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+            {isSignIn ? "No account yet?" : "Already have an account?"}{" "}
+            <Link
+              href={!isSignIn ? "/sign-in" : "/sign-up"}
+              className="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline"
+            >
+              {!isSignIn ? "Sign In" : "Sign Up"}
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
