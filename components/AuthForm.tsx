@@ -7,16 +7,16 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 
-import { signUp, signIn } from "@/lib/actions/auth.action";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import FormField from "@/components/FormField";
 
-//Define the form type
+// Define the form type
 type FormType = "sign-in" | "sign-up";
 
-//Schema factory
+// Schema factory
 const authFormSchema = (type: FormType) =>
   z.object({
     name:
@@ -42,38 +42,37 @@ const AuthForm = ({ type }: { type: FormType }) => {
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
-      if (type === "sign-up") {
-        const { name, email, password } = data;
+      // Relative URLs to avoid fetch errors
+      const url = type === "sign-up" ? "/api/auth/sign-up" : "/api/auth/sign-in";
 
-        const result = await signUp({
-          name: name!,
-          email,
-          password,
-        });
+      const res = await fetch("/api/auth/sign-up", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-        if (!result.success) {
-          toast.error(result.message);
-          return;
-        }
+     
 
-        toast.success("Account created successfully. Please sign in.");
-        router.push("/sign-in");
-      } else {
-        const { email, password } = data;
-
-        const result = await signIn({
-          email,
-          password,
-        });
-
-        if (!result.success) {
-          toast.error(result.message);
-          return;
-        }
-
-        toast.success(" Signed in successfully.");
-        router.push("/");
+      if (!res.ok) {
+        const text = await res.text();
+        toast.error(`Error: ${text}`);
+        return;
       }
+
+      const result = await res.json();
+
+      if (!result.success) {
+        toast.error(result.message || "Something went wrong");
+        return;
+      }
+
+      toast.success(
+        type === "sign-up"
+          ? "Account created successfully! Please sign in."
+          : "Signed in successfully."
+      );
+
+      router.push(type === "sign-up" ? "/sign-in" : "/");
     } catch (error: any) {
       console.error(error);
       toast.error(`There was an error: ${error.message || error}`);
@@ -83,14 +82,25 @@ const AuthForm = ({ type }: { type: FormType }) => {
   const isSignIn = type === "sign-in";
 
   return (
-    <div className="lg:min-w-[566px]">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="lg:min-w-[566px]"
+    >
       {/* Gradient Border Wrapper */}
       <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-[2px] rounded-2xl shadow-xl">
         {/* Inner Card */}
         <div className="flex flex-col gap-6 bg-white dark:bg-gray-900 rounded-2xl py-14 px-10">
           {/* Logo + Title */}
           <div className="flex flex-row gap-2 justify-center items-center">
-            <Image src="/logo.svg" alt="logo" height={32} width={38} />
+            <Image
+              src="/logo.svg"
+              alt="logo"
+              width={38}
+              height={32}
+              style={{ width: "auto", height: "auto" }} 
+            />
             <h2 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
               PrepWise
             </h2>
@@ -158,7 +168,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
