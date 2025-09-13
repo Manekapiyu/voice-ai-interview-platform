@@ -10,9 +10,9 @@ const DisplayTechIcons = async ({ techStack }: TechIconProps) => {
            <div
           key={tech}
           className=
-            "relative group bg-dark-300 rounded-full p-2 flex flex-center">
+            " rounded-full bg-blue-200 mr-1  gap -2 relative group  p-2 flex flex-center">
       
-          <span className="tech-tooltip">{tech}</span>
+          <span className="tech-tooltip ">{tech}</span>
           
           <Image
             src={url}
