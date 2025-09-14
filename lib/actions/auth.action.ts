@@ -117,8 +117,8 @@ export async function getCurrentUser(): Promise<User | null> {
       ...userRecord.data(),
       id: userRecord.id,
     } as User;
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    console.log(e);
 
     // Invalid or expired session
     return null;
