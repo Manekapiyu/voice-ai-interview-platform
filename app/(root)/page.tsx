@@ -35,7 +35,7 @@ const Page = () => {
       </section>
     
 {/* About Us Section */}
-<section className="mt-2 py-20 px-6 ">
+<section className="mt-2 py-18 px-6 ">
   <div className="container mx-auto flex flex-col items-center text-center max-w-3xl">
 
     
@@ -64,7 +64,7 @@ const Page = () => {
       <div className="p-6 bg-gray-50  rounded-2xl shadow-md hover:shadow-lg transition-transform hover:scale-105">
         <Image src="/growth.svg" alt="growth" width={50} height={50} className="mx-auto mb-3"/>
         <h3 className="text-lg font-semibold text-blue-800 mb-1">Vision</h3>
-        <p className="text-gray-600 text-sm">Empower everyone to succeed in interviews and careers.</p>
+        <p className="text-gray-600 text-sm ">Empower everyone to succeed in interviews and careers.</p>
       </div>
     </div>
   </div>
@@ -73,7 +73,7 @@ const Page = () => {
 
 
       {/* Your Interviews Section */}
-      <section className="flex flex-col gap-6 mt-5">
+      <section className="flex flex-col gap-6 mt-1 ">
         <h2 className="text-2xl font-semibold">Your Interviews</h2>
         <div className="interviews-section grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {dummyInterviews.map((interview) => (
