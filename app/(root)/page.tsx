@@ -4,6 +4,7 @@ import Image from "next/image";
 import { dummyInterviews } from "@/constants";
 import InterviewCard from "@/components/InterviewCard";
 
+
 import { Button } from "@/components/ui/button";
 
 const Page = () => {
@@ -35,8 +36,10 @@ const Page = () => {
       </section>
     
 {/* About Us Section */}
-<section className="mt-2 py-18 px-6">
-  <div className="container mx-auto flex flex-col items-center text-center max-w-4xl">
+<section className="mt-2 py-18 px-6 ">
+  <div className="container mx-auto flex flex-col items-center text-center max-w-3xl">
+
+    
     <h2 className="text-4xl font-extrabold text-gray-200 mb-3">
       About <span className="text-indigo-600">AI Interview Prep</span>
     </h2>
@@ -45,8 +48,9 @@ const Page = () => {
       build confidence and land your dream job.
     </p>
 
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full">
-      <div className="p-6 bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition-transform hover:scale-105">
+   
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+      <div className="p-6   bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition-transform hover:scale-105">
         <Image src="/mission.svg" alt="mission" width={50} height={50} className="mx-auto mb-3"/>
         <h3 className="text-lg font-semibold text-blue-800 mb-1">Mission</h3>
         <p className="text-gray-600 text-sm">Make interview prep easy, effective, and confidence-boosting.</p>
@@ -58,20 +62,15 @@ const Page = () => {
         <p className="text-gray-900 text-sm">AI-driven simulations and instant personalized feedback.</p>
       </div>
 
-      <div className="p-6 bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition-transform hover:scale-105">
+      <div className="p-6 bg-gray-50  rounded-2xl shadow-md hover:shadow-lg transition-transform hover:scale-105">
         <Image src="/growth.svg" alt="growth" width={50} height={50} className="mx-auto mb-3"/>
         <h3 className="text-lg font-semibold text-blue-800 mb-1">Vision</h3>
-        <p className="text-gray-600 text-sm">Empower everyone to succeed in interviews and careers.</p>
-      </div>
-
-      <div className="p-6 bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition-transform hover:scale-105">
-        <Image src="/values.svg" alt="values" width={50} height={50} className="mx-auto mb-3"/>
-        <h3 className="text-lg font-semibold text-blue-800 mb-1">Values</h3>
-        <p className="text-gray-600 text-sm">Commitment to integrity, learning, and helping users succeed.</p>
+        <p className="text-gray-600 text-sm ">Empower everyone to succeed in interviews and careers.</p>
       </div>
     </div>
   </div>
 </section>
+
 
 
       {/* Your Interviews Section */}
