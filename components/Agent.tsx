@@ -34,10 +34,10 @@ const Agent = ({ userName }: AgentProps) => {
               alt="AI Avatar"
               width={65}
               height={54}
-               className="ml-2 rounded-full object-cover bg-primary-100"
+               className="ml-2 rounded-full p-2 object-cover bg-blue-100"
             />
             {isSpeaking && (
-              <span className="absolute inset-0 m-auto rounded-full w-20 h-20 animate-ping bg-primary-200 opacity-75" />
+              <span className="absolute inset-0 m-auto rounded-full w-20 h-20 animate-ping bg-blue-300 opacity-75" />
             )}
           </div>
           <h3 className="pt-2 text-center">AI Interview</h3>
