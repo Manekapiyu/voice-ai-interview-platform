@@ -12,7 +12,7 @@ export async function setSessionCookie(idToken: string) {
 
   // Create session cookie
   const sessionCookie = await auth.createSessionCookie(idToken, {
-    expiresIn:  ONE_WEEK * 1000, // milliseconds
+    expiresIn:  ONE_WEEK * 1000, 
   });
 
   // Set cookie in the browser
@@ -112,7 +112,6 @@ export async function getCurrentUser(): Promise<User | null> {
       .collection("users")
       .doc(decodedClaims.uid)
       .get();
-
     if (!userRecord.exists) return null;
 
     return {
