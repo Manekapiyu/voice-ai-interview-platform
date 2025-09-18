@@ -6,7 +6,7 @@ import InterviewCard from "@/components/InterviewCard";
 
 import { Button } from "@/components/ui/button";
 
-const Page = () => {
+const Home = () => {
   return (
     <>
       {/* Hero Section */}
@@ -110,4 +110,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Home;

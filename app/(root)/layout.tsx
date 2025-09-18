@@ -7,12 +7,9 @@ import { isAuthenticated } from "@/lib/actions/auth.action";
 
 const Layout = async ({ children }: { children: ReactNode }) => {
   const isUserAuthenticated = await isAuthenticated();
+  if (!isUserAuthenticated) redirect("/sign-in");
 
-  if (!isUserAuthenticated) {
-    redirect("./sign-in");
-  }
-
-  return (
+ return (
     <div className="root-layout">
       <nav>
         <Link href="/" className="flex items-center gap-2">
