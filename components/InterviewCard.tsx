@@ -36,7 +36,7 @@ const InterviewCard = async ({
             alt="cover-image"
             width={90}
             height={90}
-            className="rounded-full border-4 border-indigo-100 shadow-lg object-cover size-[90px]"
+            className="rounded-full border-4 border-indigo-100 shadow-lg object-cover"
           />
         </div>
 
