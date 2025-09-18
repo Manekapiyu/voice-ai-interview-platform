@@ -47,25 +47,25 @@ const Page = () => {
 
     <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full">
       <div className="p-6 bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition-transform hover:scale-105">
-        <Image src="/mission.svg" alt="mission" width={50} height={50} className="mx-auto mb-3"/>
+        <Image src="/mission.svg" alt="mission" width={60} height={70} className="mx-auto mb-3"/>
         <h3 className="text-lg font-semibold text-blue-800 mb-1">Mission</h3>
         <p className="text-gray-600 text-sm">Make interview prep easy, effective, and confidence-boosting.</p>
       </div>
 
       <div className="p-6 bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition-transform hover:scale-105">
-        <Image src="/innovation.svg" alt="innovation" width={50} height={50} className="mx-auto mb-3"/>
+        <Image src="/innovation.svg" alt="innovation" width={60} height={70} className="mx-auto mb-3"/>
         <h3 className="text-lg font-semibold text-blue-800 mb-1">Approach</h3>
         <p className="text-gray-900 text-sm">AI-driven simulations and instant personalized feedback.</p>
       </div>
 
       <div className="p-6 bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition-transform hover:scale-105">
-        <Image src="/growth.svg" alt="growth" width={50} height={50} className="mx-auto mb-3"/>
+        <Image src="/growth.svg" alt="growth" width={60} height={70} className="mx-auto mb-3"/>
         <h3 className="text-lg font-semibold text-blue-800 mb-1">Vision</h3>
         <p className="text-gray-600 text-sm">Empower everyone to succeed in interviews and careers.</p>
       </div>
 
       <div className="p-6 bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition-transform hover:scale-105">
-        <Image src="/values.svg" alt="values" width={50} height={50} className="mx-auto mb-3"/>
+        <Image src="/values.svg" alt="values" width={60} height={70} className="mx-auto mb-3"/>
         <h3 className="text-lg font-semibold text-blue-800 mb-1">Values</h3>
         <p className="text-gray-600 text-sm">Commitment to integrity, learning, and helping users succeed.</p>
       </div>
