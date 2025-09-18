@@ -12,7 +12,7 @@ export async function setSessionCookie(idToken: string) {
 
   // Create session cookie
   const sessionCookie = await auth.createSessionCookie(idToken, {
-    expiresIn:  ONE_WEEK * 1000, 
+    expiresIn:  ONE_WEEK * 1000, // milliseconds
   });
 
   // Set cookie in the browser
